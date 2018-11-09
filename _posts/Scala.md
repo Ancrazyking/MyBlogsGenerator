@@ -1,5 +1,5 @@
 ---
-title: Scala 
+title: Scala函数与闭包 
 date:  2018-11-07 21:30:00
 tags:  函数式编程
 comments: true
