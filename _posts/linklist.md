@@ -5,65 +5,65 @@ tags: 数据结构-线性表
 commnents: true
 categories: 数据结构
 ---
-
+注:图片源自极客时间的[数据结构与算法之美专栏](https://time.geekbang.org/)
 ### 链表的定义
-        与数组需要连续空间不同,链表不需要内存中连续的内存空间,而是通过指针将一组零散的内存块串联起来使用.
-
-
-
-### 链表的分类
-
-
-
+与数组需要连续空间不同,链表不需要内存中连续的内存空间,而是通过指针将一组零散的内存块串联起来使用.
+****
 #### 单链表
 ****
+链表通过指针将一组零散的内存块串联在一起,其中,我们把内存块称为链表的"结点".
+![SingleLinkedList.jpg](https://static001.geekbang.org/resource/image/b9/eb/b93e7ade9bb927baad1348d9a806ddeb.jpg)
 
-        单链表即链接方向是单向的,由若干个节点,每一个节点都包含指向下一个节点的指针(next).
-- Java中定义一个链表节点(单链表)
-
+单链表中有两个结点是比较特殊的,第一个结点和最后一个结点.
 ```
-class Node{
-    int data;//数据域
-    Node next; //指向下一个节点的指针
-}
+头结点用来记录链表的基地址
+尾结点的next指针域指向一个空地址NULL.
 ```
-
-- 单链表特点
-
-        节点的增加和删除快 O(1),直接改变指针指向即可.
-        单链表中的元素顺序访问需要通过遍历,顺序访问,复杂度O(n).
-
-
-- 单链表常用操作
-1. 头节点插入
-2. 头节点删除
-3. 任意位置插入与删除
+链表支持数据的查找、 插入和删除操作
+![linkedlist.jpg](https://static001.geekbang.org/resource/image/45/17/452e943788bdeea462d364389bd08a17.jpg)
 
 
 
 
-#### 循环链表(约瑟夫环的问题)
+#### 循环链表
 ****
-        循环链表即链表的尾节点指向链表的头节点.
+一种特殊的单链表,与单链表唯一的区别就是尾结点.
+单链表的尾结点指向NULL空地址,而循环链表的 _尾结点指向链表的头结点_.
+![CircularLinkedList.jpg](https://static001.geekbang.org/resource/image/86/55/86cb7dc331ea958b0a108b911f38d155.jpg)
+```
+与单链表相比,循环链表的可以处理具有环形结构的数据(约瑟夫环的问题).
+```
 
-
-
-
-
-
-#### 双向链表
+#### 双(向)链表
 ****
-        双链表即链接方向是双向的,若干个节点,每个节点都包含指向前一个节点的q前驱指针(prev)和指向后一个节点的后继指针(next).
+单链表只有一个方向,结点只有一个后继指针next指向后面的结点.而双向结点有两个指针,前驱指针 __previous__ 和后继指针 __next__ .
+![DoubleLinkedList.jpg](https://static001.geekbang.org/resource/image/cb/0b/cbc8ab20276e2f9312030c313a9ef70b.jpg)
 
-- Java中定义一个双向链表的节点
+#### 双向循环链表
+****
+![CircularDoubleLinkedList.jpg](https://static001.geekbang.org/resource/image/d1/91/d1665043b283ecdf79b157cfc9e5ed91.jpg)
 
+
+
+### 链表与数组的性能
+- 数组
 ```
-class  Node{
-    int data;  //数据域
-    Node prev;  //前驱指针
-    Node next;  //后继指针
-}
+插入删除 O(n)  
+随机访问 O(1)
 ```
+- 链表
+```
+插入删除 O(1)
+随机访问 O(n)
+```
+
+
+### [部分代码实现(Java语言)](https://github.com/Ancrazyking/DataStructureAndAlgorithm)
+
+
+
+
+
 
 
 
